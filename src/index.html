@@ -33,6 +33,8 @@
             };
 
             var game = new Phaser.Game(config);
+            var score = 0;
+            var scoreText;
 
             function preload ()
             {
@@ -45,6 +47,8 @@
 
             function create ()
             {
+                
+                
                 this.add.image(400, 300, 'sky');
 
                 plataforms = this.physics.add.staticGroup();
@@ -92,12 +96,12 @@
                     child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8))
                 });
 
+                scoreText = this.add.text(16, 16, 'Score: 0', { fontSize: '32px', fill: '#000'})
+
                 this.physics.add.collider(stars,plataforms);
                 this.physics.add.overlap(player, stars, collectStar, null, this);
 
-                function collectStar(player, star){
-                    star.disableBody(true, true);
-                }
+                
             }
 
             function update ()
@@ -125,6 +129,15 @@
                 {
                     player.setVelocityY(-330);
                 }
+            }
+
+            function collectStar(player, star){
+                star.disableBody(true, true);
+                console.log('im here')
+                console.log(score)
+                score += 10;
+                scoreText.setText('Score: ' + score);
+                
             }
 
         </script>
