@@ -6,6 +6,6 @@
     "phaser": "^3.22.0"
   },
   "scripts": {
-    "go": "nodemon indes.js"
+    "go": "node index.js"
   }
 }
