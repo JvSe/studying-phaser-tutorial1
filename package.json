@@ -6,6 +6,6 @@
     "phaser": "^3.22.0"
   },
   "scripts": {
-    "go": "node index.js"
+    "start": "node index.js"
   }
 }
